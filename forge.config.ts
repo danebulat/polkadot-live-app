@@ -110,7 +110,7 @@ const config: ForgeConfig = {
       name: '@electron-forge/publisher-github',
       config: {
         repository: {
-          owner: 'polkadot-live',
+          owner: 'danebulat',
           name: 'polkadot-live-app',
         },
         draft: false,
