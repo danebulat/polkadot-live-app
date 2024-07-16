@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1-alpha](https://github.com/danebulat/polkadot-live-app/compare/v0.1.0-alpha...v0.1.1-alpha) (2024-07-16)
+
+
+### Bug Fixes
+
+* release ci ([791f43a](https://github.com/danebulat/polkadot-live-app/commit/791f43a2b5d411d9f34d288fab766851475aa72a))
+* windows runner ([7ace409](https://github.com/danebulat/polkadot-live-app/commit/7ace409bd467b53a43eafaca89d78f3f05389323))
+
 ## [0.1.0-alpha](https://github.com/danebulat/polkadot-live-app/compare/v0.1.0-alpha...v0.1.0-alpha) (2024-07-16)
 
 
