@@ -67,9 +67,7 @@ jobs:
         node-version: 18.x
     - name: Install Dependencies
       run: yarn install
-    - name: Package
-      run: yarn package
     - name: Publish
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-      run: yarn publish
+      run: set DEBUG=electron-forge:* & node_modules\.bin\electron-forge publish
