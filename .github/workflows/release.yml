@@ -70,4 +70,4 @@ jobs:
     - name: Publish
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-      run: set DEBUG=electron-forge:* & node_modules\.bin\electron-forge publish
+      run: set DEBUG=electron-forge:* & node_modules\.bin\electron-forge --arch=ia32,x64 --platform=win32 publish
