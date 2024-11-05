@@ -4,10 +4,10 @@
 import { defineConfig } from 'vite';
 import { node } from '../.electron-vendors.cache.json';
 import { join } from 'node:path';
-import { external } from '../vite.base.config';
 import { resolve } from 'path';
 import eslint from 'vite-plugin-eslint';
 import svgr from 'vite-plugin-svgr';
+import { external } from '../vite.base.config';
 
 const PACKAGE_ROOT = join(__dirname, '..');
 const PROJECT_ROOT = PACKAGE_ROOT;

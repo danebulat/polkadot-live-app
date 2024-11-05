@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import {
-  app,
   BrowserWindow,
   Tray,
   nativeImage,
@@ -331,14 +330,9 @@ const loadUrlWithRoute = (
   } else {
     // Production: load from app build.
     const cont = window instanceof BrowserWindow ? window : window.webContents;
-    cont.loadFile(path.join(app.getAppPath(), 'dist/renderer/index.html'));
-
-    //cont.loadURL(
-    //  `file://${path.join(
-    //    __dirname,
-    //    `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html#${route}`
-    //  )}`
-    //);
+    cont.loadURL(
+      `file://${path.join(__dirname, `../renderer/index.html#${route}`)}`
+    );
   }
 };
 

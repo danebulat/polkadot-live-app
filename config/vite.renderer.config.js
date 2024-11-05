@@ -6,7 +6,6 @@ import react from '@vitejs/plugin-react-swc';
 import svgr from 'vite-plugin-svgr';
 import { join, resolve } from 'path';
 import { chrome } from '../.electron-vendors.cache.json';
-import { external } from '../vite.base.config';
 
 const PACKAGE_ROOT = join(__dirname, '../');
 const PROJECT_ROOT = PACKAGE_ROOT;
@@ -40,11 +39,11 @@ export default defineConfig({
   },
   build: {
     sourcemap: true,
+    minify: process.env.MODE !== 'development',
     target: `chrome${chrome}`,
     outDir: 'dist/renderer',
     assetsDir: '.',
     rollupOptions: {
-      external,
       input: join(PACKAGE_ROOT, 'index.html'),
     },
     emptyOutDir: true,

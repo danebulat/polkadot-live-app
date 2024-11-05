@@ -35,6 +35,10 @@ export default defineConfig({
           // https://www.electronjs.org/docs/latest/tutorial/esm#esm-preload-scripts-must-have-the-mjs-extension
           entryFileNames: '[name].cjs',
           format: 'cjs',
+          // It should not be split chunks.
+          inlineDynamicImports: true,
+          chunkFileNames: '[name].cjs',
+          assetFileNames: '[name].[ext]',
         },
       ],
     },
