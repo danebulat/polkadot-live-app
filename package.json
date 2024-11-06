@@ -20,8 +20,7 @@
     "build:main": "vite build --config config/vite.main.config.js",
     "build:all": "concurrently \"yarn run build:renderer\" \"yarn run build:preload\" \"yarn run build:main\"",
     "package": "cross-env MODE=production yarn run build:all && electron-builder --config scripts/electron-builder.config.mjs",
-    "asar:list": "asar list",
-    "release": "electron-builder ---no-build"
+    "asar:list": "asar list"
   },
   "engines": {
     "node": ">=23.1.0"
