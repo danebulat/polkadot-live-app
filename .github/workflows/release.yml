@@ -53,6 +53,7 @@ jobs:
       run: yarn install
     - name: Publish
       env:
+        EP_GH_IGNORE_TIME: true
         MODE: 'production'
         CSC_LINK: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
         CSC_KEY_PASSWORD: ${{ secrets.P12_PASSWORD }}
