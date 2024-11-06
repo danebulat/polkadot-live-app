@@ -4,8 +4,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { builtinModules } from 'node:module';
-import type { AddressInfo } from 'node:net';
-import type { ConfigEnv, Plugin, UserConfig } from 'vite';
 import pkg from './package.json';
 
 export const builtins = [
@@ -20,6 +18,7 @@ export const external = [
   ),
 ];
 
+/*
 export function getBuildConfig(env: ConfigEnv<'build'>): UserConfig {
   const { root, mode, command } = env;
 
@@ -113,3 +112,4 @@ export function pluginHotRestart(command: 'reload' | 'restart'): Plugin {
     },
   };
 }
+*/
