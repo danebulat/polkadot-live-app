@@ -17,6 +17,14 @@ export default {
   },
   files: ['dist/**/*', 'node_modules/**/*', 'package.json'],
   afterSign: 'scripts/notarize.mjs',
+  publish: {
+    provider: 'github',
+    owner: 'danebulat',
+    repo: 'polkadot-live-app',
+    // Options: "draft", "prerelease", or "release"
+    // TODO: Control with env variable EP_DRAFT, EP_PRE_RELEASE.
+    releaseType: 'release',
+  },
   mac: {
     icon: 'public/assets/icons/icon.icns',
     target: [
@@ -35,9 +43,9 @@ export default {
     entitlementsInherit: 'entitlements/extendedInfo.plist',
     gatekeeperAssess: false,
   },
-  linux: {
-    icon: 'assets/LinuxIcons',
-    category: 'Utility',
-    target: 'AppImage',
-  },
+  //linux: {
+  //  icon: 'assets/LinuxIcons',
+  //  category: 'Utility',
+  //  target: 'AppImage',
+  //},
 };
