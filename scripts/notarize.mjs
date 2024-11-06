@@ -24,7 +24,7 @@ export default async function notarizing(context) {
     // Login name of your Apple Developer account.
     appleId: process.env.APPLE_ID,
     // App-specific password.
-    appleIdPassword: process.env.APPLE_ID_PASS,
+    appleIdPassword: process.env.APPLE_ID_PASSWORD,
     // Team ID for your developer team.
     teamId: process.env.APPLE_TEAM_ID,
   });
