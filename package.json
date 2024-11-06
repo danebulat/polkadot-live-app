@@ -21,7 +21,7 @@
     "build:all": "concurrently \"yarn run build:renderer\" \"yarn run build:preload\" \"yarn run build:main\"",
     "package": "cross-env MODE=production yarn run build:all && electron-builder --config scripts/electron-builder.config.mjs",
     "asar:list": "asar list",
-    "release": "electron-builder"
+    "release": "electron-builder ---no-build"
   },
   "engines": {
     "node": ">=23.1.0"
