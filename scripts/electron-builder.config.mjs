@@ -16,7 +16,7 @@ export default {
     buildResources: 'dist/renderer',
   },
   files: ['dist/**/*', 'node_modules/**/*', 'package.json'],
-  afterSign: 'scripts/notarize.mjs',
+  //afterSign: 'scripts/notarize.mjs',
   publish: {
     provider: 'github',
     owner: 'danebulat',
