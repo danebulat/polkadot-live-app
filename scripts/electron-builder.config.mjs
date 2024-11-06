@@ -39,6 +39,7 @@ export default {
     entitlementsInherit: 'entitlements/extendedInfo.plist',
     gatekeeperAssess: false,
   },
+  notarize: false,
   dmg: {
     sign: false,
   },
