@@ -37,7 +37,8 @@ export default {
     notarize: true,
     entitlements: 'entitlements/extendedInfo.plist',
     entitlementsInherit: 'entitlements/extendedInfo.plist',
-    gatekeeperAssess: true,
+    gatekeeperAssess: false,
+    provisioningProfile: process.env.PP_FILE,
   },
   dmg: {
     sign: false,
