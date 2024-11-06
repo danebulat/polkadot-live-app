@@ -34,12 +34,11 @@ export default {
       },
     ],
     hardenedRuntime: true,
-    notarize: false,
+    notarize: process.env.MODE === 'production',
     entitlements: 'entitlements/extendedInfo.plist',
     entitlementsInherit: 'entitlements/extendedInfo.plist',
     gatekeeperAssess: false,
   },
-  notarize: false,
   dmg: {
     sign: false,
   },
