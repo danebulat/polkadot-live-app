@@ -34,7 +34,9 @@ export default {
       },
     ],
     hardenedRuntime: true,
-    notarize: process.env.MODE === 'production',
+    notarize: {
+      teamId: process.env.APPLE_TEAM_ID,
+    },
     entitlements: 'entitlements/extendedInfo.plist',
     entitlementsInherit: 'entitlements/extendedInfo.plist',
     gatekeeperAssess: false,
