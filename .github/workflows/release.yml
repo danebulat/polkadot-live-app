@@ -26,8 +26,6 @@ jobs:
         P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
         BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
         KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
-        CSC_LINK: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-        CSC_KEY_PASSWORD: ${{ secrets.P12_PASSWORD }}
       run: |
         # create variables
         CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
@@ -55,5 +53,8 @@ jobs:
       run: yarn install
     - name: Publish
       env:
+        MODE: 'production'
+        CSC_LINK: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+        CSC_KEY_PASSWORD: ${{ secrets.P12_PASSWORD }}
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-      run: yarn release 
+      run: yarn package && yarn release
