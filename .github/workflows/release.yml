@@ -53,7 +53,6 @@ jobs:
       run: yarn install
     - name: Publish
       env:
-        PP_FILE:  "~/Library/MobileDevice/Provisioning\ Profiles/build_pp.provisionprofile"
         EP_GH_IGNORE_TIME: true
         MODE: 'production'
         CSC_LINK: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
