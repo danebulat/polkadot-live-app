@@ -34,9 +34,7 @@ export default {
       },
     ],
     hardenedRuntime: true,
-    notarize: {
-      teamId: process.env.APPLE_TEAM_ID,
-    },
+    notarize: true,
     entitlements: 'entitlements/extendedInfo.plist',
     entitlementsInherit: 'entitlements/extendedInfo.plist',
     gatekeeperAssess: false,
