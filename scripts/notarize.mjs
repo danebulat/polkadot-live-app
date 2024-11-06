@@ -18,8 +18,10 @@ export default async function notarizing(context) {
   }
 
   const appName = context.packager.appInfo.productFilename;
+  const appId = 'com.jkrb.polkadot-live';
 
   return await notarize({
+    appBundleId: appId,
     appPath: `${appOutDir}/${appName}.app`,
     // Login name of your Apple Developer account.
     appleId: process.env.APPLE_ID,
@@ -27,5 +29,6 @@ export default async function notarizing(context) {
     appleIdPassword: process.env.APPLE_ID_PASSWORD,
     // Team ID for your developer team.
     teamId: process.env.APPLE_TEAM_ID,
+    tool: 'notarytool',
   });
 }

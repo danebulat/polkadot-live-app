@@ -32,16 +32,15 @@ export default {
         target: 'dmg',
         arch: ['arm64'],
       },
-      {
-        target: 'zip',
-        arch: ['arm64'],
-      },
     ],
     hardenedRuntime: true,
     notarize: false,
     entitlements: 'entitlements/extendedInfo.plist',
     entitlementsInherit: 'entitlements/extendedInfo.plist',
     gatekeeperAssess: false,
+  },
+  dmg: {
+    sign: false,
   },
   //linux: {
   //  icon: 'assets/LinuxIcons',
