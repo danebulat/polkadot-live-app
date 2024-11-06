@@ -57,4 +57,4 @@ jobs:
         CSC_LINK: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
         CSC_KEY_PASSWORD: ${{ secrets.P12_PASSWORD }}
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-      run: yarn package && yarn release
+      run: yarn vendors && yarn package && yarn release
