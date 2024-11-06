@@ -16,6 +16,7 @@ export default {
     buildResources: 'dist/renderer',
   },
   files: ['dist/**/*', 'node_modules/**/*', 'package.json'],
+  afterSign: 'scripts/notarize.mjs',
   mac: {
     icon: 'public/assets/icons/icon.icns',
     target: [
@@ -31,6 +32,8 @@ export default {
     hardenedRuntime: true,
     notarize: false,
     entitlements: 'entitlements/extendedInfo.plist',
+    entitlementsInherit: 'entitlements/extendedInfo.plist',
+    gatekeeperAssess: false,
   },
   linux: {
     icon: 'assets/LinuxIcons',
