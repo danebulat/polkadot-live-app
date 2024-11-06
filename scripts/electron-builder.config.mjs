@@ -37,7 +37,7 @@ export default {
     notarize: true,
     entitlements: 'entitlements/extendedInfo.plist',
     entitlementsInherit: 'entitlements/extendedInfo.plist',
-    gatekeeperAssess: false,
+    gatekeeperAssess: true,
   },
   dmg: {
     sign: false,
