@@ -5,43 +5,57 @@
  * Export electron-builder config.
  */
 export default {
+  /** Metadata */
   appId: 'com.jkrb.polkadot-live',
-  compression: 'normal',
-  productName: 'Polkadot Live',
-  copyright: `Copyright (C) ${new Date().getFullYear()} Polkadot Live Authors & Contributors`,
   asar: true,
-  npmRebuild: true,
+  compression: 'normal',
+  copyright: `Copyright (C) ${new Date().getFullYear()} Polkadot Live Authors & Contributors`,
+  productName: 'Polkadot Live',
+  /** Building */
   directories: {
     output: 'releases',
     buildResources: 'dist/renderer',
   },
   files: ['dist/**/*', 'node_modules/**/*', 'package.json'],
-  //afterSign: 'scripts/notarize.mjs',
+  npmRebuild: true,
+  /** Publishing */
   publish: {
     provider: 'github',
     owner: 'danebulat',
     repo: 'polkadot-live-app',
-    // Options: "draft", "prerelease", or "release"
-    // TODO: Control with env variable EP_DRAFT, EP_PRE_RELEASE.
     releaseType: 'release',
   },
+  /** Mac */
+  dmg: {
+    sign: false,
+  },
   mac: {
+    entitlements: 'entitlements/entitlements.mac.inherit.plist',
+    forceCodeSigning: true,
+    gatekeeperAssess: false,
+    hardenedRuntime: true,
     icon: 'public/assets/icons/icon.icns',
+    notarize: true,
     target: [
       {
         target: 'dmg',
         arch: ['arm64'],
       },
     ],
-    hardenedRuntime: true,
-    notarize: true,
-    entitlements: 'entitlements/entitlements.mac.inherit.plist',
-    //entitlementsInherit: 'entitlements/extendedInfo.plist',
-    forceCodeSigning: true,
-    gatekeeperAssess: false,
   },
-  dmg: {
-    sign: false,
+  /** Windows */
+  nsis: {
+    oneClick: false,
+    allowToChangeInstallationDirectory: false,
+  },
+  win: {
+    icon: 'public/assets/icons/icon.ico',
+    target: [
+      {
+        target: 'nsis',
+        arch: ['x64'],
+      },
+    ],
   },
   //linux: {
   //  icon: 'assets/LinuxIcons',
