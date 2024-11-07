@@ -55,7 +55,7 @@ jobs:
       env:
         EP_GH_IGNORE_TIME: true
         MODE: 'production'
-        CSC_LINK: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
-        CSC_KEY_PASSWORD: ${{ secrets.P12_PASSWORD }}
+        CSC_LINK: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+        CSC_KEY_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: yarn vendors && yarn package
