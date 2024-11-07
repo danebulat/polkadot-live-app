@@ -7,10 +7,10 @@
 export default {
   /** Metadata */
   appId: 'com.jkrb.polkadot-live',
+  asar: true,
   compression: 'normal',
   copyright: `Copyright (C) ${new Date().getFullYear()} Polkadot Live Authors & Contributors`,
   productName: 'Polkadot Live',
-  asar: true,
   /** Building */
   directories: {
     output: 'releases',
