@@ -21,6 +21,7 @@
     "build:all": "concurrently \"yarn run build:renderer\" \"yarn run build:preload\" \"yarn run build:main\"",
     "package": "cross-env MODE=production yarn run build:all && electron-builder --config scripts/electron-builder.config.prod.mjs",
     "package:dev": "cross-env MODE=development yarn run build:all && electron-builder --config scripts/electron-builder.config.dev.mjs",
+    "package:win": "cross-env MODE=production CSC_IDENTITY_AUTO_DISCOVERY=false yarn run build:all && electron-builder build --win --config scripts/electron-builder.config.prod.mjs",
     "asar:list": "asar list"
   },
   "engines": {

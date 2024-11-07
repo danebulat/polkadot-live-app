@@ -46,6 +46,7 @@ export default {
   /** Windows */
   nsis: {
     oneClick: false,
+    sign: false,
     allowToChangeInstallationDirectory: false,
   },
   win: {
