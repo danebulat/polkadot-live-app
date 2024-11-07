@@ -36,7 +36,8 @@ export default {
     hardenedRuntime: true,
     notarize: true,
     entitlements: 'entitlements/extendedInfo.plist',
-    entitlementsInherit: 'entitlements/extendedInfo.plist',
+    //entitlementsInherit: 'entitlements/extendedInfo.plist',
+    forceCodeSigning: true,
     gatekeeperAssess: false,
   },
   dmg: {
