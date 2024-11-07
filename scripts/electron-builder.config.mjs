@@ -35,7 +35,7 @@ export default {
     ],
     hardenedRuntime: true,
     notarize: true,
-    entitlements: 'entitlements/extendedInfo.plist',
+    entitlements: 'entitlements/entitlements.mac.inherit.plist',
     //entitlementsInherit: 'entitlements/extendedInfo.plist',
     forceCodeSigning: true,
     gatekeeperAssess: false,
