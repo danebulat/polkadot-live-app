@@ -31,7 +31,7 @@ export default {
   /** Publishing */
   publish: {
     provider: 'github',
-    owner: 'polkadot-live',
+    owner: 'danebulat',
     repo: 'polkadot-live-app',
     releaseType: 'release',
   },
