@@ -36,7 +36,7 @@ export default {
   /** Publishing */
   publish: {
     provider: 'github',
-    owner: 'polkadot-live',
+    owner: 'todo',
     repo: 'polkadot-live-app',
     releaseType: 'release',
   },
