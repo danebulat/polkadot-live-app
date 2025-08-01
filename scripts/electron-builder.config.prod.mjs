@@ -36,7 +36,7 @@ export default {
   /** Publishing */
   publish: {
     provider: 'github',
-    owner: 'todo',
+    owner: process.env.GH_OWNER,
     repo: 'polkadot-live-app',
     releaseType: 'release',
   },
@@ -66,7 +66,14 @@ export default {
     allowToChangeInstallationDirectory: false,
   },
   win: {
+    azureSignOptions: {
+      publisherName: process.env.AZURE_COMMON_NAME,
+      endpoint: process.env.AZURE_ENDPOINT,
+      certificateProfileName: process.env.AZURE_CERTIFICATE_PROFILE_NAME,
+      codeSigningAccountName: process.env.AZURE_CODE_SIGNING_ACCOUNT_NAME,
+    },
     icon: 'assets/icon.ico',
+    signAndEditExecutable: true,
     target: [
       {
         target: 'nsis',
