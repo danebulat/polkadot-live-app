@@ -72,6 +72,7 @@ export default {
       certificateProfileName: process.env.AZURE_CERTIFICATE_PROFILE_NAME,
       codeSigningAccountName: process.env.AZURE_CODE_SIGNING_ACCOUNT_NAME,
     },
+    executableName: 'Polkadot-Live',
     icon: 'assets/icon.ico',
     signAndEditExecutable: true,
     target: [
