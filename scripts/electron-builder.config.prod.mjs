@@ -12,7 +12,7 @@ export default {
   asar: true,
   compression: 'normal',
   copyright: `Copyright (C) ${new Date().getFullYear()} Polkadot Live Authors & Contributors`,
-  productName: 'Polkadot Live',
+  productName: 'PolkadotLive',
   extraMetadata: {
     author: 'JKRB Investments Limited',
   },
@@ -72,7 +72,7 @@ export default {
       certificateProfileName: process.env.AZURE_CERTIFICATE_PROFILE_NAME,
       codeSigningAccountName: process.env.AZURE_CODE_SIGNING_ACCOUNT_NAME,
     },
-    executableName: 'Polkadot-Live',
+    executableName: 'PolkadotLive',
     icon: 'assets/icon.ico',
     signAndEditExecutable: true,
     target: [
