@@ -5,6 +5,9 @@ jobs:
   publish_on_windows:
     runs-on: windows-latest
     steps:
+    - name: Configure Git to use LF line endings
+      run: git config --global core.autocrlf input
+
     - uses: actions/checkout@v4
 
     - uses: actions/setup-node@v4
