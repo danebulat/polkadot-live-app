@@ -34,12 +34,15 @@ export default {
   npmRebuild: true,
 
   /** Publishing */
-  publish: {
-    provider: 'github',
-    owner: process.env.GH_OWNER,
-    repo: 'polkadot-live-app',
-    releaseType: 'release',
-  },
+  publish:
+    process.platform === 'win32'
+      ? null
+      : {
+          provider: 'github',
+          owner: process.env.GH_OWNER,
+          repo: 'polkadot-live-app',
+          releaseType: 'release',
+        },
 
   /** Mac */
   dmg: {
@@ -66,15 +69,7 @@ export default {
     allowToChangeInstallationDirectory: false,
   },
   win: {
-    azureSignOptions: {
-      publisherName: process.env.AZURE_COMMON_NAME,
-      endpoint: process.env.AZURE_ENDPOINT,
-      certificateProfileName: process.env.AZURE_CERTIFICATE_PROFILE_NAME,
-      codeSigningAccountName: process.env.AZURE_CODE_SIGNING_ACCOUNT_NAME,
-    },
-    executableName: 'PolkadotLive',
     icon: 'assets/icon.ico',
-    signAndEditExecutable: true,
     target: [
       {
         target: 'nsis',
