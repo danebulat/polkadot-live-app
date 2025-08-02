@@ -37,7 +37,6 @@ jobs:
 
     - name: Find EXE Path
       id: find_exe
-      shell: pwsh
       run: |
         $workspace = $env:GITHUB_WORKSPACE
         $exePath = Get-ChildItem -Path "$workspace\releases" -Filter "*.exe" | Select-Object -First 1
