@@ -1,5 +1,10 @@
 name: Release Windows
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag (e.g. v1.2.3)'
+        required: true
 
 jobs:
   publish_on_windows:
@@ -27,17 +32,52 @@ jobs:
 
     - name: Build and Package App
       env:
-        AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-        AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-
-        AZURE_CERTIFICATE_PROFILE_NAME: ${{ secrets.AZURE_CERTIFICATE_PROFILE_NAME }}
-        AZURE_CODE_SIGNING_ACCOUNT_NAME: ${{ secrets.AZURE_CODE_SIGNING_ACCOUNT_NAME }}
-        AZURE_COMMON_NAME: ${{ secrets.AZURE_COMMON_NAME }}
-        AZURE_ENDPOINT: ${{ secrets.AZURE_ENDPOINT }}
-        
-        EP_GH_IGNORE_TIME: true
-        GH_OWNER: ${{ secrets.GH_OWNER }}
-        GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         MODE: 'production'
       run: yarn vendors && yarn package
+
+    - name: Find EXE Path
+      id: find_exe
+      shell: pwsh
+      run: |
+        $workspace = $env:GITHUB_WORKSPACE
+        $exePath = Get-ChildItem -Path "$workspace\polkadot-live-app\releases" -Filter "*.exe" | Select-Object -First 1
+        if (-not $exePath) {
+          throw "No .exe file found"
+        }
+        Write-Host "Found EXE: $($exePath.FullName)"
+        "exe_path=$($exePath.FullName)" >> $env:GITHUB_OUTPUT
+
+    - name: Sign executable with Azure Trusted Signing
+      uses: azure/trusted-signing-action@v0
+      with:
+        azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        azure-client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+        endpoint: ${{ secrets.AZURE_ENDPOINT }}
+        trusted-signing-account-name: ${{ secrets.AZURE_CODE_SIGNING_ACCOUNT_NAME }}
+        certificate-profile-name: ${{ secrets.AZURE_CERTIFICATE_PROFILE_NAME }}
+        files: |
+          ${{ steps.find_exe.outputs.exe_path }}
+        file-digest: SHA256
+        timestamp-rfc3161: http://timestamp.acs.microsoft.com
+        timestamp-digest: SHA256
+
+        exclude-environment-credential: false
+        exclude-workload-identity-credential: true
+        exclude-managed-identity-credential: true
+        exclude-shared-token-cache-credential: true
+        exclude-visual-studio-credential: true
+        exclude-visual-studio-code-credential: true
+        exclude-azure-cli-credential: true
+        exclude-azure-powershell-credential: true
+        exclude-azure-developer-cli-credential: true
+        exclude-interactive-browser-credential: true
+
+    - name: Upload Release Artifacts
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ github.event.inputs.release_tag }}
+        files: |
+          ${{ steps.find_exe.outputs.exe_path }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
