@@ -12,7 +12,7 @@ export default {
   asar: true,
   compression: 'normal',
   copyright: `Copyright (C) ${new Date().getFullYear()} Polkadot Live Authors & Contributors`,
-  productName: 'PolkadotLive',
+  productName: 'Polkadot Live',
   extraMetadata: {
     author: 'JKRB Investments Limited',
   },

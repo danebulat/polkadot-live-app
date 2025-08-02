@@ -47,7 +47,7 @@ jobs:
         Write-Host "Found EXE: $($exePath.FullName)"
         "exe_path=$($exePath.FullName)" >> $env:GITHUB_OUTPUT
 
-    - name: Sign executable with Azure Trusted Signing
+    - name: Sign Executable with Azure Trusted Signing
       uses: azure/trusted-signing-action@v0
       with:
         azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
