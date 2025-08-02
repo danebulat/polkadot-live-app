@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: 'Release tag (e.g. v1.2.3)'
+        description: 'Release tag (e.g. 1.2.3)'
         required: true
 
 jobs:
@@ -40,7 +40,7 @@ jobs:
       shell: pwsh
       run: |
         $workspace = $env:GITHUB_WORKSPACE
-        $exePath = Get-ChildItem -Path "$workspace\polkadot-live-app\releases" -Filter "*.exe" | Select-Object -First 1
+        $exePath = Get-ChildItem -Path "$workspace\releases" -Filter "*.exe" | Select-Object -First 1
         if (-not $exePath) {
           throw "No .exe file found"
         }
