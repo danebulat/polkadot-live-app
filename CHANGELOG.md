@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.10.1-alpha](https://github.com/danebulat/polkadot-live-app/compare/0.10.0-alpha...v0.10.1-alpha) (2025-08-03)
+
+
+### Bug Fixes
+
+* markdown link check ci ([#10](https://github.com/danebulat/polkadot-live-app/issues/10)) ([9cb5b2f](https://github.com/danebulat/polkadot-live-app/commit/9cb5b2faa6b510cdc5ee14492679a121f9211f0e))
+* release please + cleanup ([#9](https://github.com/danebulat/polkadot-live-app/issues/9)) ([2e95fb6](https://github.com/danebulat/polkadot-live-app/commit/2e95fb6af221aef21381a7cd0de2b030e36e61eb))
+* windows ci exe path ([#8](https://github.com/danebulat/polkadot-live-app/issues/8)) ([0c92d18](https://github.com/danebulat/polkadot-live-app/commit/0c92d181cc7fa0821374909b92e01d023801c89b))
+
 ## [0.6.2-alpha](https://github.com/danebulat/polkadot-live-app/compare/v0.10.0-alpha...v0.6.2-alpha) (2025-08-01)
 
 
